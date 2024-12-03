@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Kanit", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("/resources/theicon.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.login_w {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+.form {
+  width: 100%;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #444;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1em;
+}
+
+.form input[type="text"]::placeholder,
+.form input[type="password"]::placeholder {
+  color: #ddd;
+}
+
+.log {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(45deg, #ff0000, #ff9900);
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: linear-gradient(45deg, #ff9900, #ff0000);
+  transform: scale(1.05);
+}
+
+.form p {
+  color: #ddd;
+  font-size: 0.9em;
+  margin-top: 20px;
+}
+
+.form a {
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+.form a:hover {
+  text-decoration: underline;
+}

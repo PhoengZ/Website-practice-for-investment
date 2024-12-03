@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Kanit", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("/resources/theicon.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.leaderboard_w {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffcc00;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.leaderboard {
+  list-style: none;
+  padding-top: 20px;
+}
+
+.leaderboard li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  position: relative;
+  padding-left: 50px;
+}
+
+/* สไตล์สำหรับอันดับที่ 1 */
+.leaderboard li:first-child {
+  background: linear-gradient(45deg, #ffd700, #ff8c00);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+  padding-left: 50px;
+}
+
+.leaderboard li:first-child .name,
+.leaderboard li:first-child .score {
+  color: #000; 
+}
+
+.leaderboard li:first-child::before {
+  content: "🏆";
+  font-size: 2em;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.leaderboard li:nth-child(2) {
+  background: linear-gradient(45deg, #c0c0c0, #b0b0b0);
+  box-shadow: 0 0 10px rgba(192, 192, 192, 0.7);
+  padding-left: 50px;
+}
+
+.leaderboard li:nth-child(2) .name,
+.leaderboard li:nth-child(2) .score {
+  color: #000; 
+}
+
+.leaderboard li:nth-child(2)::before {
+  content: "🥈";
+  font-size: 2em;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.leaderboard li:nth-child(3) {
+  background: linear-gradient(45deg, #cd7f32, #b87333);
+  box-shadow: 0 0 10px rgba(205, 127, 50, 0.7);
+  padding-left: 50px;
+}
+
+.leaderboard li:nth-child(3) .name,
+.leaderboard li:nth-child(3) .score {
+  color: #000; 
+}
+
+.leaderboard li:nth-child(3)::before {
+  content: "🥉";
+  font-size: 2em;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* สไตล์ทั่วไป */
+.leaderboard .name {
+  font-size: 1.2em;
+  color: #fff;
+}
+
+.leaderboard .score {
+  font-size: 1.2em;
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+.decr {
+  text-align: center;
+  color: white;
+  padding: 10;
+  margin-bottom: 30px;
+}
+
+.leaderboard_w a {
+  color: white;
+  text-decoration: none;
+}
+
+.leaderboard_w a:hover {
+  text-decoration: underline;
+}
+
+

@@ -1,0 +1,87 @@
+<!--
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header Bar</title>
+  <link rel="stylesheet" href="style_newsboard1.css">
+</head>
+<body>
+  <header class="header-bar">
+    <div class="logo">
+      <img src="resources/logo.png" alt="Logo" />
+      <span class="invest-text">ลงทุน 888</span>
+    </div>
+    <div class="balance">
+      เงินคงเหลือ: <span id="balance-amount">฿500.00</span>
+    </div>
+  </header>
+  <br>
+  <p class="round1">ข่าวสารที่น่าสนใจ</p>
+  <div class = "box">
+    <img src="https://www.infoquest.co.th/wp-content/uploads/2024/09/DF8015E22BC08B53A6070BD6C319EF99.jpg"/>
+    <div>รมว.แรงงาน เร่งชงชื่อกก.ค่าจ้างเข้าครม.สัปดาห์หน้า หวังขึ้นค่าแรง 400 บาทเป็นของขวัญปีใหม่</div>
+  </div>
+
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ลงทุน888</title>
+  <link rel="icon" href="resources/logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style_newsboard1.css">
+  <link href="https://fonts.googleapis.com/css?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- ส่วนหัวของหน้า -->
+  <header class="header-bar">
+    <div class="logo">
+      <img src="resources/logo.png" alt="Logo">
+      <span class="invest-text">ลงทุน 888</span>
+    </div>
+    <div class="user">
+      ชื่อผู้ใช้ : <span class="username">w</span>
+    </div>
+    <div class="balance">เงินคงเหลือ: <span id="balance-amount">฿500.00</span></div>
+  </header>
+
+  <h2 id="round" class="round"></h2>
+  <h2 id="newsheader">ข่าวสารที่น่าสนใจ</h2>
+
+  <!-- ส่วนของข่าว -->
+  <section class="content home">
+    <!-- ข่าวหลัก -->
+    <div class="home-main">
+      <img class="home-img" src="" alt="ข่าวหลัก">
+      <h2 class="heading-2">หัวข้อข่าวหลัก</h2>
+      <p class="sub-heading"><span>ประเภทข่าว</span> | <span>วันที่ เวลา</span></p>
+      <button id="readmorebt">อ่านเพิ่มเติม</button>
+    </div>
+
+    <!-- ข่าวย่อย -->
+    <div class="lists">
+      <!-- ข่าวย่อยจะถูกสร้างไดนามิกโดย JavaScript -->
+    </div>
+  </section>
+
+  <!-- Modal สำหรับการแสดงรายละเอียดข่าว -->
+  <div class="modal" id="newsModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle">หัวข้อข่าว</h3>
+      <img alt="ข่าว" id="modalImage">
+      <p id="modalDescription">รายละเอียดข่าว...</p>
+    </div>
+  </div>
+  <button class="floating-btn" onclick="Next_deb()">ต่อไป</button>
+  <script src="newscripts/newsboard.js"></script>
+</body>
+</html>
+
+

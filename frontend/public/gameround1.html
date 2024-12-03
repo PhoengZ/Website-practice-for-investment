@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลงทุน888</title>
+    <link rel="icon" href = "resources/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style_gameround.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet'>
+
+</head>
+<body>
+    <header class="header-bar">
+        <div class="logo">
+          <img src="resources/logo.png" alt="Logo">
+          <span class="invest-text">ลงทุน 888</span>
+        </div>
+        <div class="user">
+            ชื่อผู้ใช้ : <span class="username">w</span>
+        </div>
+        <div class="balance">
+          เงินคงเหลือ : ฿<span id="balance-amount">500.00</span>
+        </div>
+        <nav>
+            <button id="cart-button" onclick="toggleCart()">พอร์ตหุ้น</button>
+        </nav>
+        <div id="cart-sidebar-overlay" onclick="toggleCart()"></div>
+        <div id="cart-sidebar">
+            <div class="cart-header">
+                <h2>หุ้นของคุณ</h2>
+                <button id="close-cart" onclick="toggleCart()">X</button>
+            </div>
+            <div class="cart-items" id="cart-items"></div>
+            <div class="totalmoney">รวมเป็นเงิน : ฿0</div>
+        </div>
+    </header>
+    
+    <div id="timer" class="timer">01:00</div>
+    <div class="company-container">
+        <div class="company-box" data-id="1">
+            <img src="https://upload.wikimedia.org/wikipedia/th/thumb/4/47/BTS_Group_Logo.svg/1200px-BTS_Group_Logo.svg.png" alt="Company 1" class="company-image">
+            <h3>บริษัท บีทีเอส กรุ๊ป โฮลดิ้งส์ จำกัด (มหาชน)</h3>
+            <br>
+            <p>ประกอบธุรกิจในหลากหลายอุตสาหกรรมโดยมุ่งเน้นการใช้ประโยชน์จากการเข้าถึงข้อมูลเครือข่ายระบบขนส่งมวลชนและสื่อโฆษณา รวมทั้งการเป็นพันธมิตรทางธุรกิจกับบริษัทต่าง ๆ เพื่อเพิ่มมูลค่าทางธุรกิจแก่กลุ่มบริษัทและพันธมิตรผ่านการดำเนินธุรกิจใน 3 แพลตฟอร์ม ได้แก่ MOVE MIX และ MATCH</p>
+            <br>
+            <br>
+            <p class="price">฿ 20</p>
+                <div class="addamount">
+                    <button class="decrease">-</button>
+                    <span class="amount">1</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="buybtn" onclick="addToCart(1, 'BTS')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/CP_ALL_Logo.svg/1200px-CP_ALL_Logo.svg.png" alt="Company 2" class="company-image">
+            <br>
+            <h3>บริษัท ซีพี ออลล์ จํากัด (มหาชน)</h3>
+            <br>
+            <p>ดำเนินธุรกิจร้านสะดวกซื้อภายใต้เครื่องหมายการค้า 7-Eleven และให้สิทธิแก่ผู้ค้าปลีกรายอื่นในการดำเนินธุรกิจในประเทศไทย และลงทุนในธุรกิจสนับสนุนธุรกิจร้านค้าสะดวกซื้อ อาทิ ผลิตและจำหน่ายอาหารสำเร็จรูปและเบเกอรี่ ตัวแทนรับชำระเงินค่าสินค้าและบริการ รวมถึงการลงทุนในธุรกิจศูนย์จำหน่ายสินค้าแบบชำระเงินสดและบริการตนเองภายใต้ชื่อ แม็คโคร</p>
+            <br>
+            <br>
+            <p class ="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" id="buycp" onclick="addToCart(2, 'CPALL')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="3">
+            <img src="https://www.prachachat.net/wp-content/uploads/2021/05/CPN-%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%B1%E0%B8%A5%E0%B8%9E%E0%B8%B1%E0%B8%92%E0%B8%99%E0%B8%B2-logo.jpg" alt="Company 2" class="company-image">
+            <br>
+            <h3>บริษัท เซ็นทรัลพัฒนา จำกัด (มหาชน)</h3>
+            <br>
+            <p class="companydetail">พัฒนาและให้เช่าพื้นที่ศูนย์การค้าขนาดใหญ่และประกอบธุรกิจอื่นที่เกี่ยวเนื่องและส่งเสริมธุรกิจ พัฒนาศูนย์การค้า เช่น อาคารสำนักงาน ศูนย์อาหาร โรงแรม และที่พักอาศัยเป็นต้น รวมถึงการลงทุนในกองทุนรวมสิทธิการเช่าอสังหาริมทรัพย์ (CPNCG) และทรัสต์เพื่อการลงทุนในสิทธิการเช่าอสังหาริมทรัพย์ (CPNREIT) และเป็นผ้บู ริหารอสังหาริมทรัพย์ของกองทุนรวมฯ และกองทรัสต์ฯ</p>
+            <br>
+            <br>
+            <p class="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" id="buycentral" onclick="addToCart(3, 'CPN')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="4">
+            <img src="https://www.kasikornbank.com/SiteCollectionDocuments/about/img/logo/logo.png" alt="Company 2" class="company-image">
+            <br>
+            <h3>บริษัท ธนาคารกสิกรไทย จำกัด (มหาชน)</h3>
+            <br>
+            <p>ธนาคารกสิกรไทย จำกัด (มหาชน) ประกอบกิจการธนาคารพาณิชย์ ธุรกิจหลักทรัพย์และธุรกิจที่เกี่ยวเนื่องตามที่ได้รับอนุญาตไว้ในพระราชบัญญัติธุรกิจสถาบันการเงินฯ และพระราชบัญญัติหลักทรัพย์และตลาดหลักทรัพย์ฯ และประกาศที่เกี่ยวข้อง  ครอบคลุมทุกพื้นที่และเพียงพอต่อความต้องการของลูกค้า นอกจากนี้ ธนาคารมีเครือข่ายการให้บริการในต่างประเทศรวม 16 แห่ง ใน 8 ประเทศ </p>
+            <br>
+            <br>
+            <p class ="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" id="buykbank" onclick="addToCart(4, 'KBAN')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="5">
+            <img src="https://www.energynewscenter.com/wp-content/uploads/2020/01/gulf166.jpg" alt="Company 2" class="company-image">
+            <br>
+            <h3>บริษัท กัลฟ์ เอ็นเนอร์จี ดีเวลลอปเมนท์ จำกัด (มหาชน)</h3>
+            <br>
+            <p>ประกอบธุรกิจหลักด้านการผลิตและจำหน่ายไฟฟ้าจากก๊าซธรรมชาติและพลังงานหมุนเวียน รวมถึงการจัดหาและจำหน่ายก๊าซธรรมชาติ การลงทุนในธุรกิจโครงสร้างพื้นฐาน และธุรกิจดิจิทัล</p>
+            <br>
+            <br>
+            <p class ="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" id="buygulf" onclick="addToCart(5, 'GULF')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="6">
+            <img src="https://www.jobbkk.com/upload/employer/0C/32C/00632C/images/253881.webp" alt="Company 2" class="company-image">
+            <br>
+            <h3>บริษัท ไทย เอ็นเนอร์จี สโตเรจ เทคโนโลยี จำกัด (มหาชน)</h3>
+            <br>
+            <p>ผลิตและจำหน่ายแบตเตอรี่หลากหลายรูปแบบ ได้แก่ 1 แบตเตอรี่สำหรับรถยนต์ 2 แบตเตอรี่สำหรับรถจักรยานยนต์ 3 แบตเตอรี่สำหรับรถฟอล์คลิฟท์ 4 แบตเตอรี่สำหรับรถกอล์ฟ 5 แบตเตอรี่สำหรับโซลาร์เซลล์ และ 6 แบตเตอรี่แสงสว่าง</p>
+            <br>
+            <br>
+            <p class ="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" id="buy3k" onclick="addToCart(6, '3KBATT')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="7">
+            <img src="https://media.set.or.th/common/logo/company/BDMS.png" alt="BDMS" class="company-image">
+            <br>
+            <h3>บริษัท กรุงเทพดุสิตเวชการ จำกัด (มหาชน)</h3>
+            <br>
+            <p>บริษัทเป็นผู้ประกอบการธุรกิจโรงพยาบาลเอกชนขนาดใหญ่ของประเทศ โดยมีโรงพยาบาลเครือข่ายในไทยและกัมพูชา ดำเนินการภายใต้ชื่อโรงพยาบาล 6 กลุ่ม คือ กลุ่มโรงพยาบาลกรุงเทพ กลุ่มโรงพยาบาลสมิติเวช โรงพยาบาลบี เอ็น เอช กลุ่มโรงพยาบาลพญาไท กลุ่มโรงพยาบาลเปาโล และกลุ่มโรงพยาบาลรอยัล นอกจากนี้เครือข่ายของบริษัท กรุงเทพดุสิตเวชการ จำกัด (มหาชน)</p>
+            <br>
+            <br>
+            <p class ="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" onclick="addToCart(7, 'BDMS')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="8">
+            <img src="https://media.set.or.th/common/logo/company/TISCO.png" alt="Company 2" class="company-image">
+            <br>
+            <h3>บริษัท ทิสโก้ไฟแนนเชียลกรุ๊ป จำกัด (มหาชน)</h3>
+            <br>
+            <p>บริษัทประกอบธุรกิจการถือหุ้นในบริษัทอื่น (Holding Company) ของกลุ่มธุรกิจทางการเงินทิสโก้ โดยมีธนาคารทิสโก้เป็นหลัก ซึ่งได้รับอนุมัติให้เป็นธนาคารพาณิชย์เต็มรูปแบบ ปัจจุบันให้บริการทางด้านการเงินอันประกอบด้วย บริการสินเชื่อลูกค้ารายย่อยและสินเชื่อธุรกิจขนาดกลางและขนาดย่อม บริการสินเชื่อพาณิชย์ธนกิจ บริการเงินฝากรายย่อย บริการลูกค้าธนบดีธนกิจ บริการตัวแทนขายประกันผ่านธนาคาร บริการจัดการการเงิน และบริการคัสโตเดียน</p>
+            <br>
+            <br>
+            <p class ="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" onclick="addToCart(8, 'TISCO')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="9">
+            <img src="https://media.set.or.th/common/logo/company/DRT.png" alt="Company 2" class="company-image">
+            <br>
+            <h3>บริษัท ผลิตภัณฑ์ตราเพชร จำกัด (มหาชน)</h3>
+            <br>
+            <p>เป็นผู้ผลิตและจำหน่ายผลิตภัณฑ์หลังคา แผ่นผนังและฝ้า ไม้สังเคราะห์ รวมทั้งสินค้าประกอบการติดตั้งหลังคาและสินค้าโครงสร้างของบ้าน พร้อมให้บริการถอดแบบและติดตั้งหลังคา ภายใต้เครื่องหมายการค้า ตราเพชร ตราหลังคา ตราอดามัส และตราเจียระไน</p>
+            <br>
+            <br>
+            <p class ="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" onclick="addToCart(9, 'DRT')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="10">
+            <img src="https://media.set.or.th/common/logo/company/SCC.png" alt="Company 2" class="company-image">
+            <br>
+            <h3>บริษัท ปูนซิเมนต์ไทย จำกัด(มหาชน)</h3>
+            <br>
+            <p>ธุรกิจการลงทุน (Holding company) ใน 3 ธุรกิจหลัก ได้แก่ ธุรกิจซีเมนต์และผลิตภัณฑ์ก่อสร้าง ธุรกิจเคมิคอลส์ และธุรกิจแพคเกจจิ้ง</p>
+            <br>
+            <br>
+            <p class ="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" onclick="addToCart(10, 'SCC')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="11">
+            <img src="https://media.set.or.th/common/logo/company/ICHI.png" alt="Company 2" class="company-image">
+            <br>
+            <h3>บริษัท อิชิตัน กรุ๊ป จำกัด (มหาชน)</h3>
+            <br>
+            <p>ประกอบธุรกิจเครื่องดื่ม เป็นผู้ผลิตและจำหน่ายเครื่องดื่มชาเขียวพร้อมดื่ม อิชิตัน กรีนที, เครื่องดื่มสมุนไพร เย็นเย็น โดยอิชิตัน และเครื่องดื่มน้ำผลไม้ไม่อัดลม ไบเล่ ในปี 2557 บริษัทได้เข้าทำสัญญาร่วมลงทุนกับบริษัท พีที อาทรี่ แปซิฟิค ซึ่งเป็นนิติบุคคลที่จัดตั้งขึ้นในประเทศอินโดนีเซีย เพื่อร่วมลงทุนในบริษัท พีที อิชิ ตัน อินโดนีเซีย ซึ่งเป็นกิจการร่วมค้าที่จะจัดตั้งขึ้นใหม่ในประเทศอินโดนีเซีย และมีวัตถุประสงค์เพื่อผลิตและจำหน่ายเครื่องดื่มพร้อมดื่ม แบรนด์ อิชิตัน ในประเทศอินโดนีเซีย</p>
+            <br>
+            <br>
+            <p class ="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" onclick="addToCart(11, 'ICHI')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="12">
+            <img src="https://media.set.or.th/common/logo/company/JMART.png" alt="Company 2" class="company-image">
+            <br>
+            <h3>บริษัท เจมาร์ท กรุ๊ป โฮลดิ้งส์ จำกัด (มหาชน)</h3>
+            <br>
+            <p>ปัจจุบัน บริษัทมีสถานะเป็นโฮลดิ้ง คอมพานี หรือประกอบธุรกิจลงทุนในธุรกิจอื่น โดยมีธุรกิจหลักของบริษัทแกนคือ จำหน่ายทั้งค้าปลีกและค้าส่งโทรศัพท์เคลื่อนที่ และสินค้าที่เกี่ยวข้องกับโทรศัพท์เคลื่อนที่ของผู้ผลิตโทรศัพท์เคลื่อนที่หลักทุกรายและผู้ให้บริการเครือข่าย และอุปกรณ์ที่เกี่ยวข้อง</p>
+            <br>
+            <br>
+            <p class ="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" onclick="addToCart(12, 'JMART')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="13">
+            <img src="https://media.set.or.th/common/logo/company/TRUE.png" alt="Company 2" class="company-image">
+            <br>
+            <h3>บริษัท ทรู คอร์ปอเรชั่น จำกัด (มหาชน)</h3>
+            <br>
+            <p>ผู้ให้บริการด้านการสื่อสารโทรคมนาคม บริการด้านดิจิทัลครบวงจร และดิจิทัลคอนเวอร์เจนซ์ไลฟ์สไตล์ครอบคลุมทั้งโทรศัพท์เคลื่อนที่ บอรดแบนด์อินเทอร์เน็ต WiFi โทรทัศน์ คอนเทนต์ และดิจิทัลมีเดียแพลตฟอร์ม</p>
+            <br>
+            <br>
+            <p class ="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" onclick="addToCart(13, 'TRUE')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="14">
+            <img src="https://media.set.or.th/common/logo/company/QH.png" alt="Company 2" class="company-image">
+            <br>
+            <h3>บริษัท ควอลิตี้เฮ้าส์ จำกัด (มหาชน)</h3>
+            <br>
+            <p>พัฒนาอสังหาริมทรัพย์เพื่อขายและให้เช่า บ้านพร้อมที่ดิน หน่วยในอาคารชุดพักอาศัย อาคารที่พักอาศัยให้เช่า (ธุรกิจเซอร์วิส อะพาร์ตเมนต์ โรงแรม) อาคารสำนักงาน รวมทั้งรับจ้างบริหาร และร่วมลงทุนในธุรกิจอื่น ๆ</p>
+            <br>
+            <br>
+            <p class ="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" onclick="addToCart(14, 'QH')">ซื้อ</button>
+        </div>
+        <div class="company-box" data-id="15">
+            <img src="https://media.set.or.th/common/logo/company/PLANB.png" alt="Company 2" class="company-image">
+            <br>
+            <h3>บริษัท แพลน บี มีเดีย จำกัด (มหาชน)</h3>
+            <br>
+            <p>ให้บริการและรับจ้างผลิตสื่อโฆษณาภายนอกที่อยู่อาศัย ประกอบด้วย สื่อโฆษณาบนระบบขนส่งมวลชน สื่อโฆษณาภาพนิ่งกลางแจ้ง สื่อโฆษณาดิจิทัลกลางแจ้ง สื่อโฆษณาภายในสนามบิน สื่อโฆษณาภายในห้างสรรพสินค้า สื่อโฆษณาออนไลน์</p>
+            <br>
+            <br>
+            <p class ="price">฿ 20</p>
+            <div class="addamount">
+                <button class="decrease">-</button>
+                <span class="amount">1</span>
+                <button class="increase">+</button>
+            </div>
+            <button class=" buybtn" onclick="addToCart(15, 'PLANB')">ซื้อ</button>
+        </div>
+  
+        <!-- Add other companies in similar format with unique data-id -->
+        
+    </div>
+    <div class="modal" id="newsModal">
+        <div class="modal-content">
+         <!-- <span class="close" onclick="closeModal()">&times;</span>-->
+          <h2 id="modalTitle">หมดเวลา</h2>
+          <ol class="record">
+           
+          </ol>
+          <div class="result">สรุปผลประกอบการในรอบนี้ : ฿ <span id="concludeprofit"></span></div>
+          <div class="top-right-button">
+            <button id="new-feature-button" onclick="next_db()">รอบต่อไป</button>
+        </div>
+        </div>
+    </div>
+    <script src="newscripts/gameround.js" type="module"></script>
+</body>
+</html>
