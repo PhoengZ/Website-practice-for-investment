@@ -50,7 +50,7 @@ window.onload = () => {
     //window.closeModal = closeModal;
     window.next_db = next_db;
     const timerDisplay = document.getElementById("timer");
-    startCountdown(10, timerDisplay);
+    startCountdown(60, timerDisplay);
     
 };
 let currentRound = localStorage.getItem('game_round');
